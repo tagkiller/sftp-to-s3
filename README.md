@@ -17,7 +17,7 @@ docker run \
     	--privileged \
 	-p 222:22 \
 	-d \
-    	emmekappa/sftp-to-s3 
+    	brandfolder/sftp-to-s3 
 ```
 
 You have to specify the AWS credentials via `S3_IDENTITY `and `S3_CREDENTIAL`.
