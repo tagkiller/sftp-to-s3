@@ -2,8 +2,8 @@ FROM ubuntu:14.04
 MAINTAINER Brandfolder Developers <developers@brandfolder.com>
 
 # S3 configuration
-ENV S3_IDENTITY=NotSet
-ENV S3_CREDENTIAL=NotSet
+ENV AWS_ACCESS_KEY_ID=NotSet
+ENV AWS_SECRET_ACCESS_KEY=NotSet
 ENV S3_BUCKET=NotSet
 
 ENV DEBIAN_FRONTEND=noninteractive 
