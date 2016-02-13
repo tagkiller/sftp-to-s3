@@ -12,12 +12,12 @@ Run the container with
 ```sh
 docker run \
 	-e S3_IDENTITY=changeme \
-    	-e S3_CREDENTIAL=changeme \
-    	-e S3_BUCKET=changeme \
-    	--privileged \
+	-e S3_CREDENTIAL=changeme \
+	-e S3_BUCKET=changeme \
+	--privileged \
 	-p 222:22 \
 	-d \
-    	brandfolder/sftp-to-s3 
+	brandfolder/sftp-to-s3 
 ```
 
 You have to specify the AWS credentials via `S3_IDENTITY `and `S3_CREDENTIAL`.
