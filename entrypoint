@@ -1,15 +1,12 @@
 #!/bin/bash
 
-adduser --disabled-password --gecos "" --force-badname --ingroup fuse $AWS_ACCESS_KEY_ID
+adduser --disabled-password --shell /bin/false --gecos "" --force-badname --ingroup fuse $AWS_ACCESS_KEY_ID
 echo "$AWS_ACCESS_KEY_ID:$AWS_SECRET_ACCESS_KEY" | chpasswd
 
 echo $AWS_ACCESS_KEY_ID:$AWS_SECRET_ACCESS_KEY > /s3credentials
 chmod 600 /s3credentials
 
-mkdir -p /mnt/s3
-s3fs $S3_BUCKET /mnt/s3 -o passwd_file=/s3credentials -o allow_other -o uid=$(id -u $AWS_ACCESS_KEY_ID)
-rm -vfr /home/$AWS_ACCESS_KEY_ID
-ln -s /mnt/s3 /home/$AWS_ACCESS_KEY_ID
+s3fs $S3_BUCKET /home/$AWS_ACCESS_KEY_ID -o passwd_file=/s3credentials -o nonempty -o allow_other -o uid=$(id -u $AWS_ACCESS_KEY_ID)
 
 echo "SFTP User: $AWS_ACCESS_KEY_ID"
 echo "S3 Bucket: $S3_BUCKET"

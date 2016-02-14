@@ -1,6 +1,6 @@
 PasswordAuthentication yes
 Subsystem sftp internal-sftp
-ChrootDirectory %h
+Match group fuse
 X11Forwarding no
 AllowTcpForwarding no
 ForceCommand internal-sftp
