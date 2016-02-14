@@ -6,7 +6,12 @@ echo "$AWS_ACCESS_KEY_ID:$AWS_SECRET_ACCESS_KEY" | chpasswd
 echo $AWS_ACCESS_KEY_ID:$AWS_SECRET_ACCESS_KEY > /s3credentials
 chmod 600 /s3credentials
 
-s3fs $S3_BUCKET /home/$AWS_ACCESS_KEY_ID -o passwd_file=/s3credentials -o nonempty -o allow_other -o uid=$(id -u $AWS_ACCESS_KEY_ID)
+s3fs $S3_BUCKET /home/$AWS_ACCESS_KEY_ID \
+  -o use_sse \
+  -o passwd_file=/s3credentials \
+  -o nonempty \
+  -o allow_other \
+  -o uid=$(id -u $AWS_ACCESS_KEY_ID)
 
 echo "SFTP User: $AWS_ACCESS_KEY_ID"
 echo "S3 Bucket: $S3_BUCKET"
