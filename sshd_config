@@ -1,0 +1,6 @@
+PasswordAuthentication yes
+Subsystem sftp internal-sftp
+ChrootDirectory %h
+X11Forwarding no
+AllowTcpForwarding no
+ForceCommand internal-sftp
