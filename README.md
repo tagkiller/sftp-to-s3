@@ -6,7 +6,7 @@ Docker image which provides an SFTP access to a specified S3 bucket.
 
 Pull the image from docker hub repository 
 
-    docker pull emmekappa/sftp-to-s3
+    docker pull brandfolder/sftp-to-s3
 
 Run the container with 
 ```sh
